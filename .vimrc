@@ -8,6 +8,12 @@ set noexpandtab
 set shiftwidth=4
 set hlsearch
 set t_Co=256
+
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+
 call plug#begin()
 Plug 'tomasiser/vim-code-dark'
 call plug#end()
